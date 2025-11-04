@@ -53,8 +53,8 @@ export default function Hero() {
         {/* Menu slider moved to its own section */}
       </div>
 
-      {/* Top-left big + detail text */}
-      <div className="pointer-events-none fixed left-6 top-24 md:top-28 z-40 text-left">
+      {/* Top-left big + detail text (scopes to hero only) */}
+      <div className="pointer-events-none absolute left-6 top-24 md:top-28 z-40 text-left">
         <h2 className="text-3xl md:text-5xl font-bold leading-tight" style={{ color: '#b9ff4f' }}>
           Handmade Noodles
         </h2>
@@ -63,8 +63,8 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Bottom-left big + detail text */}
-      <div className="pointer-events-none fixed left-6 bottom-6 z-40 text-left">
+      {/* Bottom-left big + detail text (scopes to hero only) */}
+      <div className="pointer-events-none absolute left-6 bottom-6 z-40 text-left">
         <h3 className="text-2xl md:text-3xl font-semibold" style={{ color: '#b9ff4f' }}>
           Open Daily
         </h3>
