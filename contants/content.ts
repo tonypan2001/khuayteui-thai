@@ -29,6 +29,8 @@ export const content = {
     scrollLabel: "SCROLL",
   },
   menu: {
+    header: "Recommend Menu",
+    subheader: "Our top picks, crafted fresh daily.",
     items: [
       {
         id: "boat",
@@ -66,4 +68,3 @@ export const content = {
     ] as MenuItem[],
   },
 } as const;
- 

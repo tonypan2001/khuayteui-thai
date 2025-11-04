@@ -19,7 +19,8 @@ export type SiteContent = {
     scrollLabel: string
   }
   menu: {
+    header: string
+    subheader: string
     items: MenuItem[]
   }
 }
-

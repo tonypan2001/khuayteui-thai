@@ -22,6 +22,34 @@ export default function MenuSection() {
     <section id="menu" className="relative z-10 w-full py-16">
       <div ref={ref} className="relative min-h-[300vh]">
         <div className="sticky top-0 h-screen">
+          {/* Left-center section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            className="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 z-20 text-left"
+          >
+            <h2
+              className="text-3xl md:text-5xl font-bold leading-tight"
+              style={{ color: "#b9ff4f" }}
+            >
+              {content.menu.header.split(" ").map((word, idx) => (
+                <span key={idx} className="block">
+                  {word}
+                </span>
+              ))}
+            </h2>
+            {content.menu.subheader && (
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
+                className="mt-2 max-w-xs text-sm md:text-base text-white/80"
+              >
+                {content.menu.subheader}
+              </motion.p>
+            )}
+          </motion.div>
           <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-6 px-6 py-10">
             {ITEMS.map((item, i) => (
               <MenuCard
