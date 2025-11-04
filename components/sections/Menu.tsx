@@ -56,13 +56,19 @@ export default function MenuSection() {
   const total = ITEMS.length;
 
   return (
-    <section id="menu" className="relative z-10 w-full">
+    <section id="menu" className="relative z-10 w-full py-16">
       <div ref={ref} className="relative min-h-[300vh]">
         <div className="sticky top-0 h-screen">
           <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-6 px-6 py-10">
             {ITEMS.map((item, i) => (
-              <MenuCard key={item.id} item={item} index={i} total={total} progress={scrollYProgress} />)
-            )}
+              <MenuCard
+                key={item.id}
+                item={item}
+                index={i}
+                total={total}
+                progress={scrollYProgress}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -91,7 +97,7 @@ function MenuCard({
   return (
     <motion.div
       style={{ y, opacity }}
-      className="grid grid-cols-1 items-center gap-4 rounded-xl border border-lime-400/25 bg-black/30 p-4 backdrop-blur-sm md:grid-cols-[1fr_1.2fr]"
+      className="grid grid-cols-1 items-center gap-6 md:grid-cols-[1fr_1.2fr]"
     >
       <div className="relative h-56 w-full md:h-64">
         <Image
@@ -124,4 +130,3 @@ function MenuCard({
     </motion.div>
   );
 }
-
