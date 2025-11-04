@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { content } from "@/contants/content";
 // Menu section is now separate; slider removed from Hero
 
 export default function Hero() {
@@ -43,10 +44,10 @@ export default function Hero() {
             className="text-center"
           >
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight" style={{ color: '#b9ff4f' }}>
-              Noodle House
+              {content.hero.headline}
             </h1>
             <p className="mt-3 text-base md:text-xl text-white/80">
-              Hand‑Pulled Noodles, Made Fresh Daily
+              {content.hero.subheadline}
             </p>
           </motion.div>
         </div>
@@ -56,20 +57,20 @@ export default function Hero() {
       {/* Top-left big + detail text (scopes to hero only) */}
       <div className="pointer-events-none absolute left-6 top-24 md:top-28 z-40 text-left">
         <h2 className="text-3xl md:text-5xl font-bold leading-tight" style={{ color: '#b9ff4f' }}>
-          Handmade Noodles
+          {content.hero.topLeft.title}
         </h2>
         <p className="mt-1 max-w-xs text-sm md:text-base text-white/80">
-          Pulled-to-order with heritage techniques and fresh, local flour.
+          {content.hero.topLeft.description}
         </p>
       </div>
 
       {/* Bottom-left big + detail text (scopes to hero only) */}
       <div className="pointer-events-none absolute left-6 bottom-6 z-40 text-left">
         <h3 className="text-2xl md:text-3xl font-semibold" style={{ color: '#b9ff4f' }}>
-          Open Daily
+          {content.hero.bottomLeft.title}
         </h3>
         <p className="mt-1 text-sm md:text-base text-white/80">
-          11:00–22:00 · Dine‑in · Takeaway · Order online
+          {content.hero.bottomLeft.description}
         </p>
       </div>
 
@@ -92,7 +93,7 @@ export default function Hero() {
               }}
             />
           </div>
-          <span className="text-xs tracking-widest">SCROLL</span>
+          <span className="text-xs tracking-widest">{content.hero.scrollLabel}</span>
         </motion.div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { content } from "@/contants/content";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Noodle House",
-  description: "Hand‑pulled noodles, fresh ingredients, bold flavors.",
+  title: content.site.metadata.title,
+  description: content.site.metadata.description,
 };
 
 export default function RootLayout({

@@ -3,9 +3,9 @@
 import { useCallback } from 'react'
 import { motion } from 'framer-motion'
 
-const links: Array<{ id: string; label: string }> = [
-  { id: 'menu', label: 'Menu' },
-]
+import { content } from '@/contants/content'
+
+const links = content.nav.links
 
 export default function OverlayNav() {
   const onNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -26,7 +26,7 @@ export default function OverlayNav() {
               className="text-lg font-semibold tracking-tight"
             >
               <span className="bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
-                Noodle House
+                {content.site.name}
               </span>
             </motion.span>
           </div>

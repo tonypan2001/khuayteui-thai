@@ -3,50 +3,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { content, type MenuItem } from "@/contants/content";
 
-type MenuItem = {
-  id: string;
-  title: string;
-  desc: string;
-  img: string;
-  badges?: { label: string; value: string }[];
-};
-
-const ITEMS: MenuItem[] = [
-  {
-    id: "boat",
-    title: "Boat Noodle",
-    desc: "Rich, spiced broth with tender beef slices and herbs.",
-    img: "/imgs/gem_boat_noodle.png",
-    badges: [
-      { label: "Broth", value: "Beef marrow • dark soy" },
-      { label: "Heat", value: "Medium" },
-      { label: "Toppings", value: "Beef • basil • crackling" },
-    ],
-  },
-  {
-    id: "clear",
-    title: "Clear Soup Noodle",
-    desc: "Light and aromatic broth, crisp veg and delicate noodles.",
-    img: "/imgs/gem_clear_soup_noodle.png",
-    badges: [
-      { label: "Broth", value: "Chicken • white pepper" },
-      { label: "Heat", value: "Mild" },
-      { label: "Toppings", value: "Pork • scallion • garlic" },
-    ],
-  },
-  {
-    id: "tomyum",
-    title: "Tom Yum Noodle",
-    desc: "Zesty lemongrass heat with creamy depth and crunch.",
-    img: "/imgs/gem_tomyum_noodle.png",
-    badges: [
-      { label: "Broth", value: "Tom Yum • lemongrass" },
-      { label: "Heat", value: "Hot" },
-      { label: "Toppings", value: "Shrimp • squid • lime" },
-    ],
-  },
-];
+const ITEMS: MenuItem[] = content.menu.items as MenuItem[];
 
 export default function MenuSection() {
   const ref = useRef<HTMLDivElement | null>(null);
