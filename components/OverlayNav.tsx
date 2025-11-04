@@ -3,7 +3,9 @@
 import { useCallback } from 'react'
 import { motion } from 'framer-motion'
 
-const links: Array<{ id: string; label: string }> = []
+const links: Array<{ id: string; label: string }> = [
+  { id: 'menu', label: 'Menu' },
+]
 
 export default function OverlayNav() {
   const onNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {

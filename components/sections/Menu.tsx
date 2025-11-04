@@ -1,0 +1,127 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
+
+type MenuItem = {
+  id: string;
+  title: string;
+  desc: string;
+  img: string;
+  badges?: { label: string; value: string }[];
+};
+
+const ITEMS: MenuItem[] = [
+  {
+    id: "boat",
+    title: "Boat Noodle",
+    desc: "Rich, spiced broth with tender beef slices and herbs.",
+    img: "/imgs/gem_boat_noodle.png",
+    badges: [
+      { label: "Broth", value: "Beef marrow • dark soy" },
+      { label: "Heat", value: "Medium" },
+      { label: "Toppings", value: "Beef • basil • crackling" },
+    ],
+  },
+  {
+    id: "clear",
+    title: "Clear Soup Noodle",
+    desc: "Light and aromatic broth, crisp veg and delicate noodles.",
+    img: "/imgs/gem_clear_soup_noodle.png",
+    badges: [
+      { label: "Broth", value: "Chicken • white pepper" },
+      { label: "Heat", value: "Mild" },
+      { label: "Toppings", value: "Pork • scallion • garlic" },
+    ],
+  },
+  {
+    id: "tomyum",
+    title: "Tom Yum Noodle",
+    desc: "Zesty lemongrass heat with creamy depth and crunch.",
+    img: "/imgs/gem_tomyum_noodle.png",
+    badges: [
+      { label: "Broth", value: "Tom Yum • lemongrass" },
+      { label: "Heat", value: "Hot" },
+      { label: "Toppings", value: "Shrimp • squid • lime" },
+    ],
+  },
+];
+
+export default function MenuSection() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  // Sticky reveal across the section's scroll range
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+
+  const total = ITEMS.length;
+
+  return (
+    <section id="menu" className="relative z-10 w-full">
+      <div ref={ref} className="relative min-h-[300vh]">
+        <div className="sticky top-0 h-screen">
+          <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-6 px-6 py-10">
+            {ITEMS.map((item, i) => (
+              <MenuCard key={item.id} item={item} index={i} total={total} progress={scrollYProgress} />)
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MenuCard({
+  item,
+  index,
+  total,
+  progress,
+}: {
+  item: MenuItem;
+  index: number;
+  total: number;
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  const step = 1 / total;
+  const appearStart = index * step;
+  const appearEnd = appearStart + step * 0.5; // ease in during first half of its window
+
+  const y = useTransform(progress, [0, appearStart, appearEnd, 1], [24, 24, 0, 0]);
+  const opacity = useTransform(progress, [0, appearStart, appearEnd, 1], [0, 0, 1, 1]);
+
+  return (
+    <motion.div
+      style={{ y, opacity }}
+      className="grid grid-cols-1 items-center gap-4 rounded-xl border border-lime-400/25 bg-black/30 p-4 backdrop-blur-sm md:grid-cols-[1fr_1.2fr]"
+    >
+      <div className="relative h-56 w-full md:h-64">
+        <Image
+          src={item.img}
+          alt={item.title}
+          fill
+          sizes="(max-width: 768px) 90vw, 40vw"
+          className="object-contain drop-shadow-xl"
+          priority={index === 0}
+        />
+      </div>
+      <div className="text-center md:text-left">
+        <h3 className="text-3xl md:text-4xl font-bold tracking-tight" style={{ color: '#b9ff4f' }}>
+          {item.title}
+        </h3>
+        <p className="mt-2 text-base md:text-lg text-white/80">{item.desc}</p>
+        {!!item.badges?.length && (
+          <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
+            {item.badges.map((b, idx) => (
+              <div key={idx} className="rounded-md border border-lime-400/25 bg-black/40 px-3 py-2 text-left">
+                <div className="text-[11px] uppercase tracking-wider text-white/60">{b.label}</div>
+                <div className="text-sm font-medium" style={{ color: '#b9ff4f' }}>
+                  {b.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+

@@ -2,6 +2,7 @@
 
 import SmoothScroll from "@/components/SmoothScroll";
 import Hero from "@/components/sections/Hero";
+import MenuSection from "@/components/sections/Menu";
 import OverlayNav from "@/components/OverlayNav";
 
 export default function Home() {
@@ -13,8 +14,10 @@ export default function Home() {
       <OverlayNav />
 
       <div className="relative">
-        {/* Hero section only */}
+        {/* Hero section */}
         <Hero />
+        {/* Menu section */}
+        <MenuSection />
       </div>
     </main>
   );
