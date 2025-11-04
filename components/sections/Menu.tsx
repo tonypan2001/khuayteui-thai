@@ -27,6 +27,29 @@ export default function MenuSection() {
     <section id="menu" className="relative z-10 w-full py-16">
       <div ref={ref} className="relative min-h-[300vh]">
         <div className="sticky top-0 h-screen">
+          {/* subtle drifting smoke background */}
+          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+            <motion.div
+              aria-hidden
+              className="absolute -top-1/4 left-[-10%] h-[60vh] w-[60vw] rounded-full blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(closest-side, rgba(255,255,255,0.08), rgba(255,255,255,0) 70%)",
+              }}
+              animate={{ x: [0, 30, -20, 0], y: [0, -40, -10, 0] }}
+              transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              aria-hidden
+              className="absolute bottom-[-15%] right-[-10%] h-[55vh] w-[55vw] rounded-full blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(closest-side, rgba(255,255,255,0.06), rgba(255,255,255,0) 70%)",
+              }}
+              animate={{ x: [0, -20, 10, 0], y: [0, 30, -12, 0] }}
+              transition={{ duration: 32, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            />
+          </div>
           {/* Left-center section header */}
           <motion.div
             className="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 z-20 text-left"
@@ -50,7 +73,7 @@ export default function MenuSection() {
               </motion.p>
             )}
           </motion.div>
-          <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-6 px-6 py-10">
+          <div className="relative z-10 mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-6 px-6 py-10">
             {ITEMS.map((item, i) => (
               <MenuCard
                 key={item.id}
