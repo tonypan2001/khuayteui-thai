@@ -113,7 +113,7 @@ function MenuCard({
           className="text-3xl md:text-4xl font-bold tracking-tight"
           style={{ color: "#b9ff4f" }}
         >
-          {item.title}
+          <HoverBounceText as="span" text={item.title} amplitude={7} duration={0.45} stagger={0.018} />
         </h3>
         <p className="mt-2 text-base md:text-lg text-white/80">{item.desc}</p>
         {!!item.badges?.length && (

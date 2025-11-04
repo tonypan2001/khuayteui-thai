@@ -121,7 +121,7 @@ export default function Hero() {
           className="text-3xl md:text-5xl font-bold leading-tight"
           style={{ color: "#b9ff4f" }}
         >
-          {content.hero.topLeft.title}
+          <HoverBounceText as="span" text={content.hero.topLeft.title} amplitude={8} duration={0.45} stagger={0.02} />
         </h2>
         <p className="mt-1 max-w-xs text-sm md:text-base text-white/80">
           {content.hero.topLeft.description}
@@ -139,7 +139,7 @@ export default function Hero() {
           className="text-2xl md:text-3xl font-semibold"
           style={{ color: "#b9ff4f" }}
         >
-          {content.hero.bottomLeft.title}
+          <HoverBounceText as="span" text={content.hero.bottomLeft.title} amplitude={7} duration={0.42} stagger={0.02} />
         </h3>
         <p className="mt-1 text-sm md:text-base text-white/80">
           {content.hero.bottomLeft.description}
