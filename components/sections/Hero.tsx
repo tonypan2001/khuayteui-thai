@@ -89,6 +89,26 @@ export default function Hero() {
         />
       </div>
 
+      {/* Top-left big + detail text */}
+      <div className="pointer-events-none fixed left-6 top-24 md:top-28 z-40 text-left">
+        <h2 className="text-3xl md:text-5xl font-bold leading-tight" style={{ color: '#b9ff4f' }}>
+          Handmade Noodles
+        </h2>
+        <p className="mt-1 max-w-xs text-sm md:text-base text-white/80">
+          Pulled-to-order with heritage techniques and fresh, local flour.
+        </p>
+      </div>
+
+      {/* Bottom-left big + detail text */}
+      <div className="pointer-events-none fixed left-6 bottom-6 z-40 text-left">
+        <h3 className="text-2xl md:text-3xl font-semibold" style={{ color: '#b9ff4f' }}>
+          Open Daily
+        </h3>
+        <p className="mt-1 text-sm md:text-base text-white/80">
+          11:00–22:00 · Dine‑in · Takeaway · Order online
+        </p>
+      </div>
+
       {/* Scroll indicator */}
       <div className="pointer-events-none fixed bottom-6 left-0 right-0 z-30 flex justify-center">
         <motion.div
