@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { content } from "@/contants/content";
 import type { MenuItem } from "@/types/menu";
 import SmokeBackground from "@/components/SmokeBackground";
+import HoverBounceText from "@/components/ui/HoverBounceText";
 
 const ITEMS: MenuItem[] = content.menu.items as MenuItem[];
 
@@ -38,11 +39,7 @@ export default function MenuSection() {
               className="text-3xl md:text-5xl font-bold leading-tight"
               style={{ color: "#b9ff4f", opacity: headerOpacity, y: headerY }}
             >
-              {content.menu.header.split(" ").map((word, idx) => (
-                <span key={idx} className="block">
-                  {word}
-                </span>
-              ))}
+              <HoverBounceText text={content.menu.header} stackWords amplitude={8} duration={0.45} stagger={0.02} />
             </motion.h2>
             {content.menu.subheader && (
               <motion.p

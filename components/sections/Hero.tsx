@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import { content } from "@/contants/content";
+import HoverBounceText from "@/components/ui/HoverBounceText";
 // Menu section is now separate; slider removed from Hero
 
 export default function Hero() {
@@ -92,12 +93,15 @@ export default function Hero() {
                 className="w-12 h-12 md:w-16 md:h-16"
               />
             </motion.div>
-            <h1
+            <HoverBounceText
+              as="h1"
+              text={content.hero.headline}
               className="text-5xl md:text-7xl font-semibold tracking-tight"
               style={{ color: "#b9ff4f" }}
-            >
-              {content.hero.headline}
-            </h1>
+              amplitude={10}
+              duration={0.5}
+              stagger={0.015}
+            />
             <p className="mt-3 text-base md:text-xl text-white/80">
               {content.hero.subheadline}
             </p>
