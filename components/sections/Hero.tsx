@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import MenuSlider from "@/components/MenuSlider";
 
 export default function Hero() {
   const ref = useRef<HTMLElement | null>(null);
@@ -19,7 +20,7 @@ export default function Hero() {
       className="relative z-10 h-screen w-full isolate bg-black"
     >
       {/* Background image */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <Image
           src="/imgs/wood_table_bg.png"
           alt="Wood table background"
@@ -31,26 +32,65 @@ export default function Hero() {
       {/* Readability gradient (above background) */}
       <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-      {/* Text content (top layer) */}
-      <div className="relative z-20 h-full w-full grid place-items-center px-6 pointer-events-auto">
-        <motion.div
-          style={{ y }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center max-w-4xl"
-        >
-          <motion.h1 className="text-6xl md:text-8xl xl:text-9xl font-semibold tracking-tight leading-[0.92] drop-shadow-[0_0_24px_rgba(132,204,22,0.2)] bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
-            Noodle House
-          </motion.h1>
-          <p className="mt-5 text-lg md:text-2xl tracking-wide bg-gradient-to-r from-lime-200 via-lime-300 to-lime-400 bg-clip-text text-transparent">
-            Hand‑Pulled Noodles, Made Fresh Daily
-          </p>
-        </motion.div>
+      {/* Content: Heading + scroll-driven slider */}
+      <div className="relative z-20 h-full w-full px-6 pointer-events-auto">
+        <div className="h-screen grid place-items-center">
+          <motion.div
+            style={{ y }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight" style={{ color: '#b9ff4f' }}>
+              Noodle House
+            </h1>
+            <p className="mt-3 text-base md:text-xl text-white/80">
+              Hand‑Pulled Noodles, Made Fresh Daily
+            </p>
+          </motion.div>
+        </div>
+        <MenuSlider
+          items={[
+            {
+              id: 'boat',
+              title: 'Boat Noodle',
+              desc: 'Rich, spiced broth with tender beef slices and herbs.',
+              img: '/imgs/gem_boat_noodle.png',
+              badges: [
+                { label: 'Broth', value: 'Beef marrow • dark soy' },
+                { label: 'Heat', value: 'Medium' },
+                { label: 'Toppings', value: 'Beef • basil • crackling' },
+              ],
+            },
+            {
+              id: 'clear',
+              title: 'Clear Soup Noodle',
+              desc: 'Light and aromatic broth, crisp veg and delicate noodles.',
+              img: '/imgs/gem_clear_soup_noodle.png',
+              badges: [
+                { label: 'Broth', value: 'Chicken • white pepper' },
+                { label: 'Heat', value: 'Mild' },
+                { label: 'Toppings', value: 'Pork • scallion • garlic' },
+              ],
+            },
+            {
+              id: 'tomyum',
+              title: 'Tom Yum Noodle',
+              desc: 'Zesty lemongrass heat with creamy depth and crunch.',
+              img: '/imgs/gem_tomyum_noodle.png',
+              badges: [
+                { label: 'Broth', value: 'Tom Yum • lemongrass' },
+                { label: 'Heat', value: 'Hot' },
+                { label: 'Toppings', value: 'Shrimp • squid • lime' },
+              ],
+            },
+          ]}
+        />
       </div>
 
       {/* Scroll indicator */}
-      <div className="pointer-events-none absolute bottom-6 left-0 right-0 z-30 flex justify-center">
+      <div className="pointer-events-none fixed bottom-6 left-0 right-0 z-30 flex justify-center">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 0.9, y: 0 }}
