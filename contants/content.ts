@@ -1,11 +1,4 @@
-export type Badge = { label: string; value: string };
-export type MenuItem = {
-  id: string;
-  title: string;
-  desc: string;
-  img: string;
-  badges?: Badge[];
-};
+import type { MenuItem } from "@/types/menu";
 
 export const content = {
   site: {
@@ -70,5 +63,4 @@ export const content = {
     ] as MenuItem[],
   },
 } as const;
-
-export type SiteContent = typeof content;
+ 

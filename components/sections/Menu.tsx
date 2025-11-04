@@ -3,7 +3,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { content, type MenuItem } from "@/contants/content";
+import { content } from "@/contants/content";
+import type { MenuItem } from "@/types/menu";
 
 const ITEMS: MenuItem[] = content.menu.items as MenuItem[];
 

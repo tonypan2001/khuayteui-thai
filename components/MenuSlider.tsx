@@ -3,14 +3,7 @@
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
-
-export type MenuItem = {
-  id: string
-  title: string
-  desc: string
-  img: string
-  badges?: { label: string; value: string }[]
-}
+import type { MenuItem } from '@/types/menu'
 
 export default function MenuSlider({ items }: { items: MenuItem[] }) {
   const ref = useRef<HTMLDivElement | null>(null)
