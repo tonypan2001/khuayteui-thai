@@ -2,9 +2,9 @@ import type { MenuItem } from "@/types/menu";
 
 export const content = {
   site: {
-    name: "KhuayTeiThai",
+    name: "Khuay Teui Thai",
     metadata: {
-      title: "KhuayTeiThai",
+      title: "Khuay Teui Thai",
       description: "Hand‑pulled noodles, fresh ingredients, bold flavors.",
     },
   },
@@ -15,7 +15,7 @@ export const content = {
     ],
   },
   hero: {
-    headline: "KhuayTeiThai",
+    headline: "Khuay Teui Thai",
     subheadline: "Hand‑Pulled Noodles, Made Fresh Daily",
     topLeft: {
       title: "Handmade Noodles",
