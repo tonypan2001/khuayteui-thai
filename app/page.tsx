@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import CanvasScene from '@/components/CanvasScene'
-import { useLenis } from '@/lib/useLenis'
-import Hero from '@/components/sections/Hero'
-import OverlayNav from '@/components/OverlayNav'
+import CanvasScene from "@/components/CanvasScene";
+import { useLenis } from "@/lib/useLenis";
+import Hero from "@/components/sections/Hero";
+import OverlayNav from "@/components/OverlayNav";
 
 export default function Home() {
-  useLenis(true)
+  useLenis(true);
 
   return (
     <main className="min-h-screen w-full text-white">
@@ -16,16 +16,40 @@ export default function Home() {
       <div className="relative z-10">
         {/* Hero section (pinned and orchestrated) */}
         <Hero />
-        <Section id="transport" title="Seamless Transport" subtitle="Autonomous transit and multi-modal hubs" />
-        <Section id="business" title="Business District" subtitle="Neon towers and 24/7 energy" />
-        <Section id="residential" title="Residential Calm" subtitle="Green terraces above the grid" />
-        <Section id="outro" title="The MetraCity Story" subtitle="Scroll again to revisit the journey" />
+        <Section
+          id="transport"
+          title="Seamless Transport"
+          subtitle="Autonomous transit and multi-modal hubs"
+        />
+        <Section
+          id="business"
+          title="Business District"
+          subtitle="Neon towers and 24/7 energy"
+        />
+        <Section
+          id="residential"
+          title="Residential Calm"
+          subtitle="Green terraces above the grid"
+        />
+        <Section
+          id="outro"
+          title="The MetraCity Story"
+          subtitle="Scroll again to revisit the journey"
+        />
       </div>
     </main>
-  )
+  );
 }
 
-function Section({ id, title, subtitle }: { id: string; title: string; subtitle: string }) {
+function Section({
+  id,
+  title,
+  subtitle,
+}: {
+  id: string;
+  title: string;
+  subtitle: string;
+}) {
   return (
     <section id={id} className="h-screen w-full grid place-items-center">
       <div
@@ -38,5 +62,5 @@ function Section({ id, title, subtitle }: { id: string; title: string; subtitle:
         <p className="mt-4 text-lg md:text-2xl text-white/80">{subtitle}</p>
       </div>
     </section>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, useEffect } from 'react'
 import * as THREE from 'three'
 import { valueNoise2D } from '@/lib/noise'
 import { useFrame } from '@react-three/fiber'
@@ -73,7 +73,9 @@ function ApplyMatrices({
   target: React.MutableRefObject<THREE.InstancedMesh | null>
   matrices: THREE.Matrix4[]
 }) {
-  useMemo(() => {
+  // Ensure matrices are applied once the instanced mesh ref is attached.
+  // useEffect (not useMemo) so it runs after mount when ref is set.
+  useEffect(() => {
     if (!target.current) return
     matrices.forEach((m, i) => target.current!.setMatrixAt(i, m))
     target.current.instanceMatrix.needsUpdate = true
