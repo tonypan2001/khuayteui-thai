@@ -8,32 +8,32 @@ export default function Home() {
   useLenis(true);
 
   return (
-    <main className="min-h-screen w-full text-white">
+    <main className="relative isolate min-h-screen w-full text-white">
       {/* City canvas is rendered inside Hero only */}
       <OverlayNav />
 
-      <div className="relative z-50">
+      <div className="relative">
         {/* Hero section (pinned and orchestrated) */}
         <Hero />
         <Section
-          id="transport"
-          title="Seamless Transport"
-          subtitle="Autonomous transit and multi-modal hubs"
+          id="menu"
+          title="Signature Bowls"
+          subtitle="Rich broths, fresh noodles, bold flavors"
         />
         <Section
-          id="business"
-          title="Business District"
-          subtitle="Neon towers and 24/7 energy"
+          id="ingredients"
+          title="Fresh Ingredients"
+          subtitle="Locally sourced produce and house‑made sauces"
         />
         <Section
-          id="residential"
-          title="Residential Calm"
-          subtitle="Green terraces above the grid"
+          id="kitchen"
+          title="Our Kitchen"
+          subtitle="Hand‑pulled noodles crafted to order"
         />
         <Section
-          id="outro"
-          title="The MetraCity Story"
-          subtitle="Scroll again to revisit the journey"
+          id="visit"
+          title="Visit Us"
+          subtitle="Dine‑in, takeaway, or order online"
         />
       </div>
     </main>
@@ -50,7 +50,7 @@ function Section({
   subtitle: string;
 }) {
   return (
-    <section id={id} className="h-screen w-full grid place-items-center">
+    <section id={id} className="relative z-20 h-screen w-full grid place-items-center bg-black">
       <div
         data-overlay
         className="text-center max-w-3xl px-6 py-8 backdrop-blur-sm/10 bg-white/0"

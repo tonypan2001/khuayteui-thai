@@ -4,10 +4,10 @@ import { useCallback } from 'react'
 import { motion } from 'framer-motion'
 
 const links = [
-  { id: 'transport', label: 'Transport' },
-  { id: 'business', label: 'Business' },
-  { id: 'residential', label: 'Residential' },
-  { id: 'outro', label: 'Outro' },
+  { id: 'menu', label: 'Menu' },
+  { id: 'ingredients', label: 'Ingredients' },
+  { id: 'kitchen', label: 'Kitchen' },
+  { id: 'visit', label: 'Visit' },
 ]
 
 export default function OverlayNav() {
@@ -28,8 +28,8 @@ export default function OverlayNav() {
               transition={{ duration: 0.5, ease: 'easeOut' }}
               className="text-lg font-semibold tracking-tight"
             >
-              <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-indigo-400 bg-clip-text text-transparent">
-                MetraCity
+              <span className="bg-gradient-to-r from-rose-400 via-amber-400 to-lime-300 bg-clip-text text-transparent">
+                Noodle House
               </span>
             </motion.span>
           </div>
