@@ -33,6 +33,30 @@ export default function Hero() {
       {/* Readability gradient (above background) */}
       <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
+      {/* Side center images */}
+      <div className="pointer-events-none absolute inset-0 z-[15]">
+        <div className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2">
+          <Image
+            src="/imgs/3-noodles.png"
+            alt="Assorted noodle bowls"
+            width={500}
+            height={500}
+            priority
+            className="w-40 h-40 md:w-72 md:h-72 lg:w-[500px] lg:h-[500px] object-contain drop-shadow-xl"
+          />
+        </div>
+        <div className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2">
+          <Image
+            src="/imgs/5-sauces.png"
+            alt="Five seasoning bowls"
+            width={500}
+            height={500}
+            priority
+            className="w-40 h-40 md:w-72 md:h-72 lg:w-[500px] lg:h-[500px] object-contain drop-shadow-xl"
+          />
+        </div>
+      </div>
+
       {/* Content: Heading + scroll-driven slider */}
       <div className="relative z-20 h-full w-full px-6 pointer-events-auto">
         <div className="h-screen grid place-items-center">
