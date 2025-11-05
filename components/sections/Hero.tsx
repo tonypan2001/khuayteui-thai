@@ -79,10 +79,10 @@ export default function Hero() {
           <Image
             src="/imgs/3-noodles.png"
             alt="Assorted noodle bowls"
-            width={640}
-            height={640}
+            width={500}
+            height={500}
             priority
-            className="md:w-96 md:h-96 lg:w-[640px] lg:h-[640px] object-contain drop-shadow-xl"
+            className="md:w-72 md:h-72 lg:w-[500px] lg:h-[500px] object-contain drop-shadow-xl"
           />
         </motion.div>
         <motion.div
@@ -94,10 +94,10 @@ export default function Hero() {
           <Image
             src="/imgs/5-sauces.png"
             alt="Five seasoning bowls"
-            width={640}
-            height={640}
+            width={500}
+            height={500}
             priority
-            className="md:w-96 md:h-96 lg:w-[640px] lg:h-[640px] object-contain drop-shadow-xl"
+            className="md:w-72 md:h-72 lg:w-[500px] lg:h-[500px] object-contain drop-shadow-xl"
           />
         </motion.div>
       </div>
