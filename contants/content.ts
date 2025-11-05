@@ -11,9 +11,9 @@ export const content = {
   nav: {
     links: [
       { id: "hero", label: "Home" },
+      { id: "about", label: "About" },
       { id: "menu", label: "Menu" },
       { id: "how-we-work", label: "How we work" },
-      { id: "about", label: "About" },
     ],
   },
   hero: {

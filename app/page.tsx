@@ -18,12 +18,12 @@ export default function Home() {
       <div className="relative">
         {/* Hero section */}
         <Hero />
+        {/* About us section */}
+        <AboutSection />
         {/* Menu section */}
         <MenuSection />
         {/* How we work section */}
         <HowWeWork />
-        {/* About us section */}
-        <AboutSection />
       </div>
     </main>
   );
