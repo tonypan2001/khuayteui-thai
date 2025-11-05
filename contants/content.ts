@@ -12,6 +12,7 @@ export const content = {
     links: [
       { id: "hero", label: "Home" },
       { id: "menu", label: "Menu" },
+      { id: "how-we-work", label: "How we work" },
     ],
   },
   hero: {
@@ -66,5 +67,44 @@ export const content = {
         ],
       },
     ] as MenuItem[],
+  },
+  howWeWork: {
+    header: "How We Work",
+    detail:
+      "We prep fresh ingredients daily, simmer broths low and slow, and hand‑pull noodles to order. Every bowl is finished à la minute for peak texture and flavor.",
+    imageSrc: "/imgs/kitchen.png",
+    imageAlt: "Open kitchen with steaming pots and utensils",
+    ingredients: [
+      {
+        src: "/imgs/ingredients/noodles.png",
+        alt: "Fresh noodles",
+        title: "Hand‑Pulled Noodles",
+        detail: "Pulled to order for a springy, silky bite and perfect sauce cling.",
+      },
+      {
+        src: "/imgs/ingredients/soup.png",
+        alt: "Clear soup broth",
+        title: "Slow‑Simmered Broth",
+        detail: "Clean, layered flavors from hours of gentle simmering and aromatics.",
+      },
+      {
+        src: "/imgs/ingredients/vegies.png",
+        alt: "Fresh vegetables",
+        title: "Crisp Vegetables",
+        detail: "Prepped daily for color and crunch that balance each bowl.",
+      },
+      {
+        src: "/imgs/ingredients/crispy-pork.png",
+        alt: "Crispy pork",
+        title: "Crispy Pork",
+        detail: "Golden crackling for savory depth and satisfying texture.",
+      },
+      {
+        src: "/imgs/ingredients/meat-ball.png",
+        alt: "Meat balls",
+        title: "Tender Meatballs",
+        detail: "Lightly seasoned, gently cooked for a bouncy, tender bite.",
+      },
+    ],
   },
 } as const;
