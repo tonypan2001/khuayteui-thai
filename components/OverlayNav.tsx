@@ -17,7 +17,7 @@ export default function OverlayNav() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [])
 
-  // Track which section is active in viewport
+  // Track active section based on viewport center (robust for tall/pinned sections)
   useEffect(() => {
     const ids = links.map((l) => l.id)
     const elements = ids
@@ -26,17 +26,19 @@ export default function OverlayNav() {
 
     if (elements.length === 0) return
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Pick the most centered/visible entry
-        const visible = entries.filter((e) => e.isIntersecting)
-        if (visible.length > 0) {
-          const best = visible.reduce((a, b) => (a.intersectionRatio > b.intersectionRatio ? a : b))
-          setActive((best.target as HTMLElement).id)
-          return
+    let ticking = false
+    const updateActive = () => {
+      const centerY = window.innerHeight / 2
+      let current: string | null = null
+      for (const el of elements) {
+        const rect = el.getBoundingClientRect()
+        if (rect.top <= centerY && rect.bottom >= centerY) {
+          current = el.id
+          break
         }
-        // Fallback: compute based on viewport center
-        const centerY = window.innerHeight / 2
+      }
+      if (!current) {
+        // Fallback to closest center if none wraps the center point
         let closestId: string | null = null
         let closestDist = Infinity
         for (const el of elements) {
@@ -48,35 +50,29 @@ export default function OverlayNav() {
           }
         }
         if (closestId) setActive(closestId)
-      },
-      {
-        // Use a middle band so only one section is usually active
-        root: null,
-        rootMargin: "-40% 0px -40% 0px",
-        threshold: [0.01, 0.25, 0.5, 0.75, 0.99],
+      } else {
+        setActive(current)
       }
-    )
-
-    elements.forEach((el) => observer.observe(el))
-
-    // Set initial active based on current scroll position
-    const init = () => {
-      const centerY = window.innerHeight / 2
-      let closestId: string | null = null
-      let closestDist = Infinity
-      for (const el of elements) {
-        const rect = el.getBoundingClientRect()
-        const dist = Math.abs(rect.top + rect.height / 2 - centerY)
-        if (dist < closestDist) {
-          closestDist = dist
-          closestId = el.id
-        }
-      }
-      if (closestId) setActive(closestId)
     }
-    init()
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(() => {
+          ticking = false
+          updateActive()
+        })
+      }
+    }
 
-    return () => observer.disconnect()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    // Initial
+    updateActive()
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [])
 
   return (
