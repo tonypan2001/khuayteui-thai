@@ -149,13 +149,19 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-        className="hidden md:block pointer-events-auto absolute left-6 top-28 z-40 text-left"
+        className="pointer-events-auto absolute left-6 top-28 z-40 text-left"
       >
         <h2
           className="text-3xl md:text-5xl font-bold leading-tight"
           style={{ color: "#b9ff4f" }}
         >
-          <HoverBounceText as="span" text={content.hero.topLeft.title} amplitude={8} duration={0.45} stagger={0.02} />
+          <HoverBounceText
+            as="span"
+            text={content.hero.topLeft.title}
+            amplitude={8}
+            duration={0.45}
+            stagger={0.02}
+          />
         </h2>
         <p className="mt-1 max-w-xs text-sm md:text-base text-white/80">
           {content.hero.topLeft.description}
@@ -167,13 +173,19 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="hidden md:block pointer-events-auto absolute left-6 bottom-6 z-40 text-left"
+        className="pointer-events-auto absolute left-6 bottom-6 z-40 text-left"
       >
         <h3
           className="text-2xl md:text-3xl font-semibold"
           style={{ color: "#b9ff4f" }}
         >
-          <HoverBounceText as="span" text={content.hero.bottomLeft.title} amplitude={7} duration={0.42} stagger={0.02} />
+          <HoverBounceText
+            as="span"
+            text={content.hero.bottomLeft.title}
+            amplitude={7}
+            duration={0.42}
+            stagger={0.02}
+          />
         </h3>
         <p className="mt-1 text-sm md:text-base text-white/80">
           {content.hero.bottomLeft.description}
