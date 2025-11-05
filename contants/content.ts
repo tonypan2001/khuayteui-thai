@@ -79,31 +79,36 @@ export const content = {
         src: "/imgs/ingredients/noodles.png",
         alt: "Fresh noodles",
         title: "Hand‑Pulled Noodles",
-        detail: "Pulled to order for a springy, silky bite and perfect sauce cling.",
+        detail:
+          "Pulled to order from a high‑protein flour blend that rests overnight for gluten development. We vary thickness by dish — thinner for clear soups, thicker for rich broths — so every bowl lands with the ideal chew and sauce cling.",
       },
       {
         src: "/imgs/ingredients/soup.png",
         alt: "Clear soup broth",
         title: "Slow‑Simmered Broth",
-        detail: "Clean, layered flavors from hours of gentle simmering and aromatics.",
+        detail:
+          "Bones, roots and toasted aromatics simmer gently for 6–8 hours. We skim patiently for clarity and season in stages, building depth without MSG so the final broth is clean, balanced and naturally umami‑rich.",
       },
       {
         src: "/imgs/ingredients/vegies.png",
         alt: "Fresh vegetables",
         title: "Crisp Vegetables",
-        detail: "Prepped daily for color and crunch that balance each bowl.",
+        detail:
+          "Greens and herbs are washed, trimmed and kept cold to preserve snap. We blanch or wok‑toss to order for bright color and crunch, using seasonal produce from trusted local suppliers.",
       },
       {
         src: "/imgs/ingredients/crispy-pork.png",
         alt: "Crispy pork",
         title: "Crispy Pork",
-        detail: "Golden crackling for savory depth and satisfying texture.",
+        detail:
+          "Marinated pork is slow‑cooked for tenderness, then roasted until the skin bubbles into glassy crackling. Right before serving we flash‑fry for extra crunch, yielding savory shards that enrich broths and toppings.",
       },
       {
         src: "/imgs/ingredients/meat-ball.png",
         alt: "Meat balls",
         title: "Tender Meatballs",
-        detail: "Lightly seasoned, gently cooked for a bouncy, tender bite.",
+        detail:
+          "Hand‑rolled with a light rice‑flour binder for a bouncy, tender bite. Gently poached to keep them juicy, then warmed in the broth so they absorb flavor without turning tough.",
       },
     ],
   },
