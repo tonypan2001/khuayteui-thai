@@ -5,6 +5,8 @@ import Hero from "@/components/sections/Hero";
 import HowWeWork from "@/components/sections/HowWeWork";
 import MenuSection from "@/components/sections/Menu";
 import AboutSection from "@/components/sections/About";
+import ContactSection from "@/components/sections/Contact";
+import Footer from "@/components/Footer";
 import OverlayNav from "@/components/OverlayNav";
 
 export default function Home() {
@@ -24,6 +26,10 @@ export default function Home() {
         <MenuSection />
         {/* How we work section */}
         <HowWeWork />
+        {/* Contact section */}
+        <ContactSection />
+        {/* Footer */}
+        <Footer />
       </div>
     </main>
   );

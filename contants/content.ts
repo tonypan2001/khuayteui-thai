@@ -14,6 +14,7 @@ export const content = {
       { id: "about", label: "About" },
       { id: "menu", label: "Menu" },
       { id: "how-we-work", label: "How we work" },
+      { id: "contact", label: "Contact" },
     ],
   },
   hero: {
@@ -125,5 +126,20 @@ export const content = {
       { id: "bowls", label: "Bowls Served", value: 1800000, suffix: "+" },
       { id: "years", label: "Years of Craft", value: 12, suffix: "+" },
     ],
+  },
+  contact: {
+    header: "Contact Us",
+    addressLines: [
+      "123 Flavor Street",
+      "Phaya Thai, Bangkok 10400",
+      "Thailand",
+    ],
+    phone: "+66 2 000 0000",
+    email: "hello@khuayteuithai.example",
+    hours: [
+      { label: "Mon–Fri", value: "11:00 – 22:00" },
+      { label: "Sat–Sun", value: "10:00 – 22:30" },
+    ],
+    mapEmbedUrl: "https://www.google.com/maps?q=13.7563,100.5018&hl=en&z=14&output=embed",
   },
 } as const;
