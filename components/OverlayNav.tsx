@@ -11,10 +11,12 @@ const links = content.nav.links
 export default function OverlayNav() {
   const [hovered, setHovered] = useState<string | null>(null)
   const [active, setActive] = useState<string | null>(links[0]?.id ?? null)
+  const [menuOpen, setMenuOpen] = useState(false)
   const onNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setMenuOpen(false)
   }, [])
 
   // Track active section based on viewport center (robust for tall/pinned sections)
@@ -107,7 +109,8 @@ export default function OverlayNav() {
               </motion.span>
             </div>
           </div>
-          <nav className="flex items-center gap-1 pr-1 overflow-x-auto no-scrollbar whitespace-nowrap max-w-[70vw] sm:max-w-none">
+          {/* Desktop nav */}
+          <nav className="hidden sm:flex items-center gap-1 pr-1 overflow-x-auto no-scrollbar whitespace-nowrap">
             {/** Use one shared sliding highlight for hover/active */}
             {/** Highlight shows for hovered item if any, else active item */}
             {/** Rendered per-link via shared layoutId for smooth slide */}
@@ -121,7 +124,7 @@ export default function OverlayNav() {
                 onFocus={() => setHovered(l.id)}
                 onBlur={() => setHovered(null)}
                 aria-current={active === l.id ? 'page' : undefined}
-                className={`relative rounded-full px-2 sm:px-3 py-2 text-xs sm:text-sm transition-colors ${
+                className={`relative rounded-full px-3 py-2 text-sm transition-colors ${
                   active === l.id ? 'text-white' : 'text-white/80 hover:text-white'
                 }`}
               >
@@ -136,7 +139,48 @@ export default function OverlayNav() {
               </a>
             ))}
           </nav>
+
+          {/* Mobile burger */}
+          <button
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="sm:hidden mr-2 inline-flex items-center justify-center rounded-md p-2 text-white/90 hover:text-white focus:outline-none"
+          >
+            <span className="relative block h-5 w-6">
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-full bg-white transition-transform ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
+              />
+              <span
+                className={`absolute left-0 top-2 h-0.5 w-full bg-white transition-opacity ${menuOpen ? 'opacity-0' : 'opacity-100'}`}
+              />
+              <span
+                className={`absolute left-0 top-4 h-0.5 w-full bg-white transition-transform ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`}
+              />
+            </span>
+          </button>
         </div>
+
+        {/* Mobile dropdown */}
+        <motion.div
+          initial={false}
+          animate={menuOpen ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="sm:hidden overflow-hidden"
+        >
+          <div className="mt-2 rounded-2xl border border-white/10 bg-black/80 backdrop-blur-md p-2">
+            {links.map((l) => (
+              <a
+                key={l.id}
+                href={`#${l.id}`}
+                onClick={(e) => onNavClick(e, l.id)}
+                className={`block rounded-lg px-3 py-3 text-base ${active === l.id ? 'bg-white/10 text-white' : 'text-white/85 hover:bg-white/10 hover:text-white'}`}
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   )
