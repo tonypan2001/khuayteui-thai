@@ -41,10 +41,14 @@ export default function AboutSection() {
     <section id="about" className="relative z-10 w-full py-16">
       <div ref={ref} className="relative min-h-[260vh]">
         <div className="sticky top-0 h-screen">
-          <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-6 px-6">
+          <div className="mx-auto flex h-full w-full max-w-5xl flex-col md:justify-center gap-6 px-6 pt-20 md:pt-0">
+            {/* Mobile-specific header to avoid overlap */}
+            <h2 className="md:hidden text-3xl font-bold leading-tight">
+              <span style={{ color: "#b9ff4f" }}>{content.about.header}</span>
+            </h2>
             <motion.h2
               style={{ opacity: headerOpacity, y: headerY }}
-              className="text-3xl md:text-5xl font-bold leading-tight"
+              className="hidden md:block text-3xl md:text-5xl font-bold leading-tight"
             >
               <span style={{ color: "#b9ff4f" }}>{content.about.header}</span>
             </motion.h2>
