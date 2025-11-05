@@ -17,6 +17,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: content.site.metadata.title,
   description: content.site.metadata.description,
+  icons: {
+    icon: "/logo-ktt.svg",
+  },
 };
 
 export default function RootLayout({
