@@ -45,10 +45,10 @@ export default function Hero() {
           <Image
             src="/imgs/3-noodles.png"
             alt="Assorted noodle bowls"
-            width={500}
-            height={500}
+            width={640}
+            height={640}
             priority
-            className="w-28 h-28 sm:w-32 sm:h-32 object-contain drop-shadow-xl"
+            className="w-36 h-36 sm:w-44 sm:h-44 object-contain drop-shadow-xl"
           />
         </motion.div>
         <motion.div
@@ -60,10 +60,10 @@ export default function Hero() {
           <Image
             src="/imgs/5-sauces.png"
             alt="Five seasoning bowls"
-            width={500}
-            height={500}
+            width={640}
+            height={640}
             priority
-            className="w-28 h-28 sm:w-32 sm:h-32 object-contain drop-shadow-xl"
+            className="w-36 h-36 sm:w-44 sm:h-44 object-contain drop-shadow-xl"
           />
         </motion.div>
       </div>
@@ -79,10 +79,10 @@ export default function Hero() {
           <Image
             src="/imgs/3-noodles.png"
             alt="Assorted noodle bowls"
-            width={500}
-            height={500}
+            width={640}
+            height={640}
             priority
-            className="md:w-72 md:h-72 lg:w-[500px] lg:h-[500px] object-contain drop-shadow-xl"
+            className="md:w-96 md:h-96 lg:w-[640px] lg:h-[640px] object-contain drop-shadow-xl"
           />
         </motion.div>
         <motion.div
@@ -94,10 +94,10 @@ export default function Hero() {
           <Image
             src="/imgs/5-sauces.png"
             alt="Five seasoning bowls"
-            width={500}
-            height={500}
+            width={640}
+            height={640}
             priority
-            className="md:w-72 md:h-72 lg:w-[500px] lg:h-[500px] object-contain drop-shadow-xl"
+            className="md:w-96 md:h-96 lg:w-[640px] lg:h-[640px] object-contain drop-shadow-xl"
           />
         </motion.div>
       </div>
