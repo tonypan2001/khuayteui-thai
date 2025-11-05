@@ -28,18 +28,54 @@ export default function OverlayNav() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive((entry.target as HTMLElement).id)
+        // Pick the most centered/visible entry
+        const visible = entries.filter((e) => e.isIntersecting)
+        if (visible.length > 0) {
+          const best = visible.reduce((a, b) => (a.intersectionRatio > b.intersectionRatio ? a : b))
+          setActive((best.target as HTMLElement).id)
+          return
+        }
+        // Fallback: compute based on viewport center
+        const centerY = window.innerHeight / 2
+        let closestId: string | null = null
+        let closestDist = Infinity
+        for (const el of elements) {
+          const rect = el.getBoundingClientRect()
+          const dist = Math.abs(rect.top + rect.height / 2 - centerY)
+          if (dist < closestDist) {
+            closestDist = dist
+            closestId = el.id
           }
-        })
+        }
+        if (closestId) setActive(closestId)
       },
       {
-        threshold: 0.5,
+        // Use a middle band so only one section is usually active
+        root: null,
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: [0.01, 0.25, 0.5, 0.75, 0.99],
       }
     )
 
     elements.forEach((el) => observer.observe(el))
+
+    // Set initial active based on current scroll position
+    const init = () => {
+      const centerY = window.innerHeight / 2
+      let closestId: string | null = null
+      let closestDist = Infinity
+      for (const el of elements) {
+        const rect = el.getBoundingClientRect()
+        const dist = Math.abs(rect.top + rect.height / 2 - centerY)
+        if (dist < closestDist) {
+          closestDist = dist
+          closestId = el.id
+        }
+      }
+      if (closestId) setActive(closestId)
+    }
+    init()
+
     return () => observer.disconnect()
   }, [])
 
