@@ -130,7 +130,7 @@ export default function Hero() {
             <HoverBounceText
               as="h1"
               text={content.hero.headline}
-              className="text-5xl md:text-7xl font-semibold tracking-tight"
+              className="text-4xl md:text-7xl font-semibold tracking-tight"
               style={{ color: "#b9ff4f" }}
               amplitude={10}
               duration={0.5}
